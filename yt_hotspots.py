@@ -430,17 +430,20 @@ class App(tk.Tk):
         w, h = c.winfo_width(), c.winfo_height()
         sc = normalize(self.result["score"])
         n = len(sc)
+        # Highlights first so the score line stays on top. Solid fill:
+        # stipple patterns render as grey hatching on Windows.
+        dur = self.result["duration"]
+        for r in self.result["ranges"]:
+            x1 = 10 + (w - 20) * r["start"] / dur
+            x2 = max(10 + (w - 20) * r["end"] / dur, x1 + 2)
+            c.create_rectangle(x1, 4, x2, h - 4, outline="", fill="#4a3b12")
+            c.create_rectangle(x1, h - 6, x2, h - 4, outline="",
+                               fill="#ffb300")
         pts = []
         for i, v in enumerate(sc):
             pts += [10 + (w - 20) * i / max(1, n - 1), h - 10 - (h - 24) * v]
         if len(pts) >= 4:
             c.create_line(*pts, fill="#4fc3f7", width=2)
-        dur = self.result["duration"]
-        for r in self.result["ranges"]:
-            x1 = 10 + (w - 20) * r["start"] / dur
-            x2 = 10 + (w - 20) * r["end"] / dur
-            c.create_rectangle(x1, 4, max(x2, x1 + 2), h - 4,
-                               outline="", fill="#ffb300", stipple="gray25")
 
     def selected_range(self):
         sel = self.tree.selection()

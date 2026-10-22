@@ -6,6 +6,8 @@
 
 A small Python desktop app (Tkinter). Paste a YouTube URL, and it shows the video's stats and a ranked list of the time ranges most likely to be the best moments.
 
+![The app after analyzing a video: stats, a score timeline with the best moments highlighted, and the ranked list of time ranges](docs/screenshot.png)
+
 ## Features
 
 - Video stats: title, channel, subscribers, views, likes, comments, duration, upload date
