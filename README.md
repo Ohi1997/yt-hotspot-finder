@@ -40,7 +40,7 @@ If a signal is missing, the remaining weights are rescaled. If the video has no 
 2. Download this repository: click **Code > Download ZIP** and unzip it, or run:
 
    ```
-   git clone https://github.com/Ohi1997/<repo-name>.git
+   git clone https://github.com/Ohi1997/yt-hotspot-finder.git
    ```
 
 3. Double-click `start.bat`.
@@ -50,8 +50,8 @@ On the first run, `start.bat` installs the dependencies. This takes about a minu
 ### macOS and Linux
 
 ```
-git clone https://github.com/Ohi1997/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/Ohi1997/yt-hotspot-finder.git
+cd yt-hotspot-finder
 python3 -m pip install -r requirements.txt
 python3 yt_hotspots.py
 ```
