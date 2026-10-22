@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# App logs
+*.log
+*.log.*
+
+# Local tool settings
+.claude/
+
+# Exported results
+*.csv
