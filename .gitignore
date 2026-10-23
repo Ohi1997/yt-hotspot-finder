@@ -9,6 +9,10 @@ venv/
 
 # Local tool settings
 .claude/
+yt_hotspots_settings.json
+
+# Cached video data and recent list
+cache/
 
 # Exported results
 *.csv
