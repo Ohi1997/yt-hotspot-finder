@@ -154,10 +154,33 @@ The app writes progress and errors to `yt_hotspots.log`, next to `yt_hotspots.py
 
 The log is capped at about 1 MB. Older entries move to `yt_hotspots.log.1`.
 
+## Project layout
+
+```
+yt_hotspots.py        launcher (run this)
+hotspots/
+  config.py           paths, constants, settings file
+  util.py             time and number formatting, timestamp parsing
+  signals.py          heatmap, comment, transcript and chapter signals; blending
+  ranges.py           pick, describe and title the best ranges
+  fetch.py            yt-dlp, transcript and SponsorBlock downloads
+  cache.py            local cache, recent videos, URL expansion
+  pipeline.py         analyze(), score_video(), run_batch()
+  export.py           CSV, EDL and XMEML markers
+  clips.py            ffmpeg clip download and joining
+  thumbs.py           storyboard preview images
+  cli.py              command line and entry point
+  gui/app.py          main window
+  gui/batch.py        batch dialog
+test_hotspots.py      offline self-check
+start.bat             one-click launcher for Windows
+requirements.txt      Python dependencies
+```
+
 ## Running the tests
 
 ```
-python test_yt_hotspots.py
+python test_hotspots.py
 ```
 
 The test checks the scoring logic offline and prints `OK`. It needs no internet and no dependencies. GitHub Actions runs it on every push.
@@ -175,15 +198,6 @@ The test checks the scoring logic offline and prints `OK`. It needs no internet 
 | Old views or comments | The video came from the cache. Click **Refresh** |
 | Results look generic | The video probably has no heatmap and few timestamp comments. Small videos give weaker estimates |
 | `No module named tkinter` | See the Linux install command above |
-
-## Project files
-
-| File | Purpose |
-|---|---|
-| `yt_hotspots.py` | The app: scoring logic, data fetching and GUI |
-| `start.bat` | One-click launcher for Windows |
-| `test_yt_hotspots.py` | Offline test for the scoring logic |
-| `requirements.txt` | Python dependencies |
 
 ## Limitations
 
