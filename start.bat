@@ -8,7 +8,7 @@ where python >nul 2>nul || (
     exit /b 1
 )
 
-python -c "import yt_dlp, youtube_transcript_api" 2>nul || (
+python -c "import yt_dlp, youtube_transcript_api, PIL" 2>nul || (
     echo Installing dependencies, first run only...
     python -m pip install -r requirements.txt || (pause & exit /b 1)
 )
